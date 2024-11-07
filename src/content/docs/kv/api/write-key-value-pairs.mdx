@@ -138,7 +138,7 @@ await env.NAMESPACE.put(key, value, {
 
 ### Limits to KV writes to the same key
 
-Workers KV has a maximum of 1 write to the same key per second. Writes made to the same key within 1 second will cause errors to be thrown.
+Workers KV has a maximum of 1 write to the same key per second. Writes made to the same key within 1 second will cause rate limiting (`429`) errors to be thrown.
 
 The following example serves only as a demonstration of how multiple writes to the same key may return errors by forcing concurrent writes within a single Worker invocation. This is not a pattern that should be used in production.
 
